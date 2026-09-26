@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  mlops-api:
+    image: mlops-api
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev    
+    volumes:
+      - .:/myServer
+      - .:/Log
+    env_file:
+      - ./.env
+    ports:
+      - "${PORT}:${PORT}"
